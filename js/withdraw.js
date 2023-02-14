@@ -13,22 +13,37 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     const withdrawField = document.getElementById('withdraw-field')
     const newWithDrawAmmountString = withdrawField.value;
     const newWithdrawAmmount = parseFloat(newWithDrawAmmountString);
+    
+
+         //step-7
+         withdrawField.value = '';
+
+    if(isNaN(newWithdrawAmmount)){
+        alert('Please provide valid number');
+        return;
+    }
     // step-3 
     const withdrawtotalElement = document.getElementById('withdraw-total');
     const previousWithdrawTotalString = withdrawtotalElement.innerText;
     const previousWithdrawTotal = parseFloat(previousWithdrawTotalString);
-    //step-4
-    const currenrWithdrawTotal = previousWithdrawTotal + newWithdrawAmmount;
-    withdrawtotalElement.innerText = currenrWithdrawTotal;
+    
     //step-5
     const blanceTotalElement = document.getElementById('balance-total');
     const previousBalanceTotalString = blanceTotalElement.innerText;
     const previousBalanceTotal = parseFloat(previousBalanceTotalString);
-  
+
+    
+    if(newWithdrawAmmount > previousBalanceTotal){
+        alert('bap er bank e eto taka');
+        return;
+    }
+    //step-4
+    const currenrWithdrawTotal = previousWithdrawTotal + newWithdrawAmmount;
+    withdrawtotalElement.innerText = currenrWithdrawTotal;
+
     //step-6
     const newBalanceTotal = previousBalanceTotal - newWithdrawAmmount;
     blanceTotalElement.innerText = newBalanceTotal;
 
-    //step-7
-    withdrawField.value = '';
+   
 })
