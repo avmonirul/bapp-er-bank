@@ -34,7 +34,7 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
 
     
     if(newWithdrawAmmount > previousBalanceTotal){
-        alert('bap er bank e eto taka');
+        alert('bap er bank e eto taka'); 
         return;
     }
     //step-4
